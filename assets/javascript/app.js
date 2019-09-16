@@ -29,10 +29,17 @@
 //     send user to navigation page
 
 // ON NAVIGATION PAGE LOAD
-//     query google maps api for selected and generate map
-//         display address and description
-//             display map under address and description
-//     generate 3 buttons
+//     query google maps api for selected location and generate map
+//         display address and description at top section of page
+// 
+//     query openweather api with lat/long for selected location
+//          do this for the location forecast
+//          pull expected temperature for next 4 hours
+//          display expected temperature and conditions under address and description
+// 
+//     dislay map from query under address/description/forecast
+// 
+//     generate 3 buttons, display under map
 //         one button opens location in google maps
 //         one button copies address to clipboard
 //         one button resets app, deleting local storage and loading main page
