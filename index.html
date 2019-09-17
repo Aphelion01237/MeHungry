@@ -12,69 +12,110 @@
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 
 
-  <title></title>
+  <title>MeHungry</title>
 </head>
 
 <body>
-  <div class="ui one column centered container">
-    <div class="column">
-      <div class="two column row">
-        <div class="column centered">
-          <h1> Me Hungry!</h1>
-        </div>
-      </div>
-      <br></br>
-      <div class="one column centered row">
-        <div class="column">
-          <div class="ui compact menu">
-            <div id="dropdown menu" class="ui simple dropdown item">
-              Select a Cuisine:
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <div class="item">Choice 1</div>
-                <div class="item">Choice 2</div>
-                <div class="item">Choice 3</div>
+  <div class="ui centered four doubling stackable cards">
+    <div class="ui centered card">
+        <div class="ui one column centered placeholder container">
+            <div class="column centered">
+              <div class="four column centered row">
+                <div class="column centered">
+                  <h1> Me Hungry!</h1>
+                </div>
               </div>
+              <br></br>
+              <div class="one column centered row">
+                <div class="column">
+                  <div class="ui compact menu">
+                    <div id="dropdown menu" class="ui simple dropdown item">
+                      Select a Cuisine:
+                      <i class="dropdown icon"></i>
+                      <div class="menu">
+                        <div class="item">Choice 1</div>
+                        <div class="item">Choice 2</div>
+                        <div class="item">Choice 3</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br><br>
+              <div class="two column centered row">
+                <div class="column">
+                  <button class="button" id="driving"><i class="massive car icon" val="2"></i></button>
+                  <button class="button" id="walking"><i class="massive blind icon" val="1"></i></button>
+                </div>
+      
+              </div>
+              <br></br>
+              <button class="ui button yellow create_btn" type="button" id="test">Search</button>
+    </div>
+    
+      </div>
+
+
+      <div class="ui modal test">
+        <i class="close icon"></i>
+        <div class="header">
+          What are you craving?
+        </div>
+        <div class="image content">
+
+          <div class="scrolling content">
+            <div class="ui medium image">
+              <img src="https://semantic-ui.com/images/avatar2/large/rachel.png">
             </div>
+            <div class="ui header">We've auto-chosen a profile image for you.</div>
+            <p>We've grabbed the following image from the <a href="https://www.gravatar.com"
+                target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+            <p>Is it okay to use this photo?</p>
+            <p>hagpoihdpaofiuoghpoaighaiohpu ihpiuhapuighp9a 9ughpae9ughpeurgh paeriughpiuaerghpaeuihgp9se
+              ughp9eruihg-9eruhgp9uirehgpei hgnp9seiuhgp9weiuhrgp9iueherngipuhse rpiguhespirghnwpeirughpewirug hew
+              piuhgpiewghpi weruhgpi weruhgpiweuhgb piwe uhrgp iwirugh piuhwggw</p>
+            `<p>0ihio adfsosiughiu sgroiuhsdroiub o8uhwg ouihers sodijb gdoih oiub sripugh oiuh rgoguh iusdfh oi
+              uhsdfghoiu hpwiugh iuuph oiue rwoiygu hserg8ou seroiugh oeurgh oiuesrg o8uregh roisuh sroiuh seriug
+              seoriug uh</p>
+            <p>-9iuhg09ih sdg 09sdfh goiuh ioreah ogiu 9iuh soiu gy uyg eriugy iuyg iuygiuygiuygsei buyiuyg iuyg diusyg
+              iuyg uyg iug iugh s9h 98g 8uig esiuvg iugy sdiofuyg iuy iu yguygsiueyg iuyg iuy giuygds fiuyg iuygs uyg
+              iuyg iuyg iuyg sfiuyg iugy siufyg iuyg 8odfsuhsigohjo g09 uo0s iuseg iusrh sourh oiuh os rgoih oiuhser
+              gioh oih eoriu ghoih iohe g</p>
+            <div class="ui medium image">
+              <img src="https://semantic-ui.com/images/avatar2/large/rachel.png">
+            </div>
+            <p>iugioush fo8ug o8uerwhoiug io ugi9 uhrs gah iug siufg iusd rgiu ghidsu giuh srgiuh oihs eroiuj
+              erwaj0iewhoishfg khvsjdh riayguhsriu ghsreiouhaef ihb dfskh safiugae fijarbh jkarh kasjfrgkajh afsjkadgsh
+              gskj afsijash adskjadsh kjafsh asfkuhf</p>
+            <p>We've grabbed the following image from the <a href="https://www.gravatar.com"
+                target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+            <p>Is it okay to use this photo?</p>
+            <p>hagpoihdpaofiuoghpoaighaiohpu ihpiuhapuighp9a 9ughpae9ughpeurgh paeriughpiuaerghpaeuihgp9se
+              ughp9eruihg-9eruhgp9uirehgpei hgnp9seiuhgp9weiuhrgp9iueherngipuhse rpiguhespirghnwpeirughpewirug hew
+              piuhgpiewghpi weruhgpi weruhgpiweuhgb piwe uhrgp iwirugh piuhwggw</p>
+            `<p>0ihio adfsosiughiu sgroiuhsdroiub o8uhwg ouihers sodijb gdoih oiub sripugh oiuh rgoguh iusdfh oi
+              uhsdfghoiu hpwiugh iuuph oiue rwoiygu hserg8ou seroiugh oeurgh oiuesrg o8uregh roisuh sroiuh seriug
+              seoriug uh</p>
+            <p>-9iuhg09ih sdg 09sdfh goiuh ioreah ogiu 9iuh soiu gy uyg eriugy iuyg iuygiuygiuygsei buyiuyg iuyg diusyg
+              iuyg uyg iug iugh s9h 98g 8uig esiuvg iugy sdiofuyg iuy iu yguygsiueyg iuyg iuy giuygds fiuyg iuygs uyg
+              iuyg iuyg iuyg sfiuyg iugy siufyg iuyg 8odfsuhsigohjo g09 uo0s iuseg iusrh sourh oiuh os rgoih oiuhser
+              gioh oih eoriu ghoih iohe g</p>
+            <p>iugioush fo8ug o8uerwhoiug io ugi9 uhrs gah iug siufg iusd rgiu ghidsu giuh srgiuh oihs eroiuj
+              erwaj0iewhoishfg khvsjdh riayguhsriu ghsreiouhaef ihb dfskh safiugae fijarbh jkarh kasjfrgkajh afsjkadgsh
+              gskj afsijash adskjadsh kjafsh asfkuhf</p>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui black deny button">
+            MeFull
+          </div>
+          <div class="ui positive right labeled icon button">
+            MeHungry
+            <i class="checkmark icon"></i>
           </div>
         </div>
       </div>
-      <br><br>
-      <div class="two column centered row">
-        <div class="column">
-          <button class="button"><i class="massive car icon" val="2"></i></button>
-          <button class="button"><i class="massive blind icon" val="1"></i></button>
-        </div>
 
-      </div>
-      <br></br>
-      <button class="ui button yellow create_btn" type="button" id="test">Create</button>
-      <div class="ui modal test">
-    <i class="close icon"></i>
-    <div class="header">
-      What are you craving?
-    </div>
-    <div class="image content">
-      <div class="ui medium image">
-        <img src="https://semantic-ui.com/images/avatar2/large/rachel.png">
-      </div>
-      <div class="description">
-        <div class="ui header">We've auto-chosen a profile image for you.</div>
-        <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-        <p>Is it okay to use this photo?</p>
-      </div>
-    </div>
-    <div class="actions">
-      <div class="ui black deny button">
-        Nope
-      </div>
-      <div class="ui positive right labeled icon button">
-        Yep, that's me
-        <i class="checkmark icon"></i>
-      </div>
-    </div>
-  </div>
-         
 
     </div>
   </div>
@@ -84,16 +125,7 @@
 
 
   </div>
-  <script>
-      $(function(){
-    $("#test").click(function(){
-      $(".test").modal('show');
-    });
-    $(".test").modal({
-      closable: true
-    });
-  });
-</script>
+  <script src="./assets/javascript/app.js"></script>
 
 
 

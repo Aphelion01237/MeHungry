@@ -61,4 +61,4 @@ $(function(){
 	$(".test").modal({
 		closable: true
 	});
-});
+})
