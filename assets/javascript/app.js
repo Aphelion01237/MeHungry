@@ -43,3 +43,22 @@
 //         one button opens location in google maps
 //         one button copies address to clipboard
 //         one button resets app, deleting local storage and loading main page
+
+
+
+
+
+
+$("#button").on("click", function() {
+
+$('.large.modal').modal('show');
+
+})
+$(function(){
+	$("#test").click(function(){
+		$(".test").modal('show');
+	});
+	$(".test").modal({
+		closable: true
+	});
+});
