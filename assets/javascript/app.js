@@ -1,5 +1,47 @@
 // ON PAGE LOAD
-//     request user location access
+//     request user location access NEED HTTPS FOR THIS
+
+
+// test lat/long variables
+var userLat = 37.703171
+var userLong = -122.130275
+
+function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(userPosition);
+    } else { 
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+function userPosition(position) {
+    var userLat = position.coords.latitude
+    var userLong = position.coords.longitude
+}
+getLocation()
+
+var map;
+var service;
+var infowindow;
+
+function initMap() {
+    var userLocation = new google.maps.LatLng(userLat, userLong);
+    map = new google.maps.Map({ center: userLocation });
+
+    var request = {
+        location: userLocation,
+        radius: '500',
+        type: ['restaurant']
+    };
+
+    service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, function (results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            console.log(results)
+        }
+    });
+}
+
+
 //     check local storage for unique id key on
 //         if no key is present, continue as normal
 //         if key is present, proceed to navigation page
