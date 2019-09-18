@@ -6,54 +6,48 @@ $(".ui.dropdown").dropdown();
 
 
 function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(userPosition);
-      console.log('position aquired');
-    } else { 
-      console.log("Geolocation is not supported by this browser.");
-    }
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(initMap);
+    console.log('position aquired');
+  } else { 
+    console.log("Geolocation is not supported by this browser.");
   }
-function userPosition(position) {
-    var userLat = position.coords.latitude;
-    var userLong = position.coords.longitude;
-    // var userLat = 37.703171
-    // var userLong = -122.130275
-    initMap()
 }
 
 var map;
 var service;
 var infowindow;
 var walkPlaces;
-// var userLat = 37.703171
-// var userLong = -122.130275
 
 // NEED TO CHANGE SELECT CLASS TO PULL FROM OUT DROPDOWN
 $("select.country").change(function(){
-  var $foodType = $(this).children("option:selected").val();
+var $foodType = $(this).children("option:selected").val();
 });
 
-function initMap() {
-    var userLocation = new google.maps.LatLng(userLat, userLong);
-    map = new google.maps.Map({ center: userLocation });
+function initMap(position) {
+  var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  map = new google.maps.Map({ center: userLocation });
 
-    var request = {
-        location: userLocation,
-        radius: '500',
-        type: ['restaurant'],
-        opennow: true,
-        // keyword: $foodType,
-    };
+  console.log(position.coords.latitude);
+  console.log(position.coords.longitude);
 
-    service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, function (response, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-            response.sort(function(a, b){
-              return b.rating - a.rating;
-            })
-            console.log(response)
-        }
-    });
+  var request = {
+      location: userLocation,
+      radius: '1500',
+      type: ['restaurant'],
+      opennow: true,
+      // keyword: $foodType,
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, function (response, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+          response.sort(function(a, b){
+            return b.rating - a.rating;
+          })
+          console.log(response)
+      }
+  });
 }
 getLocation()
 
