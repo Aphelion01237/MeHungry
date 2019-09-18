@@ -1,6 +1,6 @@
 // ON PAGE LOAD
 //     request user location access NEED HTTPS FOR THIS
-
+$(".ui.dropdown").dropdown();
 
 // test lat/long variables
 var userLat = 37.703171
