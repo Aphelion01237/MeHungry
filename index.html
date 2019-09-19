@@ -35,7 +35,7 @@
               <form>
                 <select id="cuisine" class="ui search dropdown cuisine">
                   <option>Pick Your Flavor</option>
-                  <option>American</option>
+                  <option val='american resturant'>American</option>
                   <option>Burger</option>
                   <option>Pizza</option>
                   <option>Cafe</option>
@@ -58,8 +58,8 @@
       <br><br>
       <div class="two column centered row">
         <div class="ui large buttons">
-          <button id='radiusButton' class="ui button"><i class="huge car icon" val="driving"></i></button>
-          <button id='radiusButton' class="ui button "><i class="huge blind icon" val="walking"></i></button>
+          <button id='radiusButton' class="ui button"><i class="huge car icon" radius="3200"></i></button>
+          <button id='RadiusButton' class="ui button "><i class="huge blind icon" radius="1600"></i></button>
         </div>
       </div>
       <br></br>
@@ -71,9 +71,8 @@
   <div class="ui modal test scrolling content internallay celled grid">
     <i class="close icon"></i>
     <div class="header">
-      Profile Picture
+      Top three resturants near you:
     </div>
-    <div id='resturantModal'></div>
     <!-- resturant 1 -->
     <div class="row">
       <button class="sixteen wide centered column">
@@ -146,10 +145,6 @@
 
   </div>
   </div>
-  </div>
-  <div class="ui large modal transition hidden">
-    <h1>Restaurants</h1>
-
   </div>
   <script src="./assets/javascript/app.js"></script>
 
