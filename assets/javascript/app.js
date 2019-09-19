@@ -38,6 +38,23 @@ function initMap(position) {
             return b.rating - a.rating;
           })
           console.log(response)
+          for(i = 0; i < 3; i++){
+            // Creating a div to hold the resturant info
+          var resturantDiv = $("<div class='resturant'>");
+          // Storing the resturant info
+          var resturantName = response[i].name;
+          var resturantRating = response[i].rating;
+          var resturantPrice = response[i].price_level;
+          var resturantID = response[i].id;
+          console.log(resturantName);
+          console.log(resturantRating);
+          console.log(resturantPrice);
+          console.log(resturantID);
+          console.log(i+1)
+          $("#name-"+i).append().text(resturantName)
+          $("#price-"+i).text(resturantPrice)
+          $("#rating-"+i).text(resturantRating)
+          }
       }
   });
 }
