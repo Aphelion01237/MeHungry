@@ -81,14 +81,12 @@ function initMap(position) {
       }
   });
 }
-<<<<<<< HEAD
 
 
 //     check local storage for unique id key on
 //         if no key is present, continue as normal
 //         if key is present, proceed to navigation page
-=======
->>>>>>> 2f18d91fe6d1c2befea82ab1061758125cd42209
+
 
 $("#radiusButton").click(getLocation)
 
@@ -113,7 +111,6 @@ $("#radiusButton").click(getLocation)
 //         one button copies address to clipboard
 //         one button resets app, deleting local storage and loading main page
 
-<<<<<<< HEAD
 
 $(function(){
   $("#test").click(getLocation)
@@ -129,13 +126,6 @@ $(function(){
 	});
 	$(".test").modal({
 		closable: true
-	});
-})
-=======
-$("#test").click(function(){
-  $(".test").modal('show');
+	})
 });
-$(".test").modal({
-  closable: true
-});
->>>>>>> 2f18d91fe6d1c2befea82ab1061758125cd42209
+
