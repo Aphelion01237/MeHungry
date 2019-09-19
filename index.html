@@ -13,7 +13,6 @@
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGW4SKZpWxq2mMkuRZiFeUElMLSdDtFQc&libraries=places"></script>
 
-
   <title>MeHungry</title>
 </head>
 
@@ -32,160 +31,136 @@
           <br></br>
           <div class="one column centered row">
             <div class="column">
-              <div class="ui compact menu">
-                <div class="ui floating dropdown labeled search icon button">
-                  <input type="hidden" name="gender">
-                  <i class="world icon"></i>
-                  <span class="text">Select cuisine</span>
-                  <div class="menu">
-                    <div class="item" value="american">American</div>
-                    <div class="item" value="burger">Burger</div>
-                    <div class="item" value="pizza">pizza</div>
-                    <div class="item" value="cafe">cafe</div>
-                    <div class="item" value="fast-food">Fast food</div>
-                    <div class="item" value="italian">Italian</div>
-                    <div class="item" value="chinese">Chinese</div>
-                    <div class="item" value="mexican">Mexican</div>
-                    <div class="item" value="indian">Indian</div>
-                    <div class="item" value="thai">Thai</div>
-                    <div class="item" value="japanese">Japanese</div>
-                    <div class="item" value="mediteranian">Mediteranian</div>
-                    <div class="item" value="vietnamese">Vietnamese</div>
-                    <div class="item" value="chipotle">Chipotle</div>
-
-
-
-
-                  </div>
-                </div>
-
-              </div>
+              <form>
+                <select id="cuisine" class="ui search dropdown cuisine">
+                  <option>Pick Your Flavor</option>
+                  <option>American</option>
+                  <option>Burger</option>
+                  <option>Pizza</option>
+                  <option>Cafe</option>
+                  <option>Fast Food</option>
+                  <option>Italian</option>
+                  <option>Chinese</option>
+                  <option>Mexican</option>
+                  <option>Indian</option>
+                  <option>Thai</option>
+                  <option>Japanese</option>
+                  <option>Mediteranian</option>
+                  <option>Vietnamese</option>
+                  <option>Chipotle</option>
+                </select>
+              </form>
             </div>
-            <br><br>
-            <div class="two column centered row">
-              <div class="ui large buttons">
-                <button class="ui button"><i class="huge car icon" val="driving"></i></button>
-                <button class="ui button "><i class="huge blind icon" val="walking"></i></button>
-              </div>
-
-            </div>
-            <br></br>
-            <button class="ui button yellow create_btn" type="button" id="test">Search</button>
-          </div>
-
-        </div>
-
-
-        <div class="ui modal test scrolling content internallay celled grid">
-          <i class="close icon"></i>
-          <div class="header">
-            Profile Picture
-          </div>
-          <div class="row">
-            <button class="sixteen wide centered column">
-
-              <div class="ui two column grid">
-                <div class="four wide column">
-
-                  <div class="ui medium image">
-                    <img src="https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png">
-
-                  </div>
-
-                </div>
-                <div class="twelve wide column">
-                  <div id="name1" class="ui header">placeholder name</div>
-                  <div class="content">
-                    <h1 id="price1">$$</h1>
-                    <h1 id="rating1">rating</h1>
-                  </div>
-                </div>
-              </div>
-            </button>
-          </div>
-          <div class="row">
-              <button class="sixteen wide centered column">
-  
-                <div class="ui two column grid">
-                  <div class="four wide column">
-  
-                    <div class="ui medium image">
-                      <img src="https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png">
-  
-                    </div>
-  
-                  </div>
-                  <div class="twelve wide column">
-                    <div id="name2" class="ui header">placeholder name</div>
-                    <div class="content">
-                      <h1 id="price2">$$</h1>
-                      <h1 id="rating2">rating</h1>
-                    </div>
-                  </div>
-                </div>
-              </button>
-            </div>
-            <div class="row">
-                <button class="sixteen wide centered column">
-    
-                  <div class="ui two column grid">
-                    <div class="four wide column">
-    
-                      <div class="ui medium image">
-                        <img src="https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png">
-    
-                      </div>
-    
-                    </div>
-                    <div class="twelve wide column">
-                      <div id="name3" class="ui header">placeholder name</div>
-                      <div class="content">
-                        <h1 id="price3">$$</h1>
-                        <h1 id="rating3">rating</h1>
-                      </div>
-                    </div>
-                  </div>
-                </button>
-              </div>
-              
-          
-
-          <div class="actions">
-            <div class="ui black deny button two wide column">
-              Nope
-            </div>
-          </div>
-          <div class="ui positive right labeled icon button">
-            Yep, that's me
-            <i class="checkmark icon"></i>
           </div>
         </div>
+      </div>
+      <br><br>
+      <div class="two column centered row">
+        <div class="ui large buttons">
+          <button id='radiusButton' class="ui button"><i class="huge car icon" val="driving"></i></button>
+          <button id='radiusButton' class="ui button "><i class="huge blind icon" val="walking"></i></button>
+        </div>
+      </div>
+      <br></br>
+      <button class="ui button yellow create_btn" type="button" id="test">Search</button>
+    </div>
+  </div>
+
+  <div class="ui modal test scrolling content internallay celled grid">
+    <i class="close icon"></i>
+    <div class="header">
+      Profile Picture
+    </div>
+    <div class="row">
+      <button class="sixteen wide centered column">
+
+        <div class="ui two column grid">
+          <div class="four wide column">
+
+            <div class="ui medium image">
+              <img src="https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png">
+
+            </div>
+
+          </div>
+          <div class="twelve wide column">
+            <div id="name1" class="ui header">placeholder name</div>
+            <div class="content">
+              <h1 id="price1">$$</h1>
+              <h1 id="rating1">rating</h1>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <div class="row">
+      <button class="sixteen wide centered column">
+
+        <div class="ui two column grid">
+          <div class="four wide column">
+
+            <div class="ui medium image">
+              <img src="https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png">
+
+            </div>
+
+          </div>
+          <div class="twelve wide column">
+            <div id="name2" class="ui header">placeholder name</div>
+            <div class="content">
+              <h1 id="price2">$$</h1>
+              <h1 id="rating2">rating</h1>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <div class="row">
+      <button class="sixteen wide centered column">
+
+        <div class="ui two column grid">
+          <div class="four wide column">
+
+            <div class="ui medium image">
+              <img src="https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png">
+
+            </div>
+
+          </div>
+          <div class="twelve wide column">
+            <div id="name3" class="ui header">placeholder name</div>
+            <div class="content">
+              <h1 id="price3">$$</h1>
+              <h1 id="rating3">rating</h1>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
 
 
 
+    <div class="actions">
+      <div class="ui black deny button two wide column">
+        Nope
       </div>
     </div>
+    <div class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+
+
+
+  </div>
+  </div>
   </div>
   <div class="ui large modal transition hidden">
     <h1>Restaurants</h1>
 
-
   </div>
   <script src="./assets/javascript/app.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 

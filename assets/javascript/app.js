@@ -2,9 +2,6 @@
 //     request user location access NEED HTTPS FOR THIS
 $(".ui.dropdown").dropdown();
 
-// test lat/long variables
-
-
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(initMap);
@@ -19,11 +16,6 @@ var service;
 var infowindow;
 var walkPlaces;
 
-// NEED TO CHANGE SELECT CLASS TO PULL FROM OUT DROPDOWN
-$("select.country").change(function(){
-var $foodType = $(this).children("option:selected").val();
-});
-
 function initMap(position) {
   var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   map = new google.maps.Map({ center: userLocation });
@@ -31,12 +23,12 @@ function initMap(position) {
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
 
+  var foodType = document.getElementById("cuisine").value
   var request = {
       location: userLocation,
       radius: '1500',
-      type: ['restaurant'],
       opennow: true,
-      // keyword: $foodType,
+      keyword: foodType,
   };
 
   service = new google.maps.places.PlacesService(map);
@@ -49,8 +41,7 @@ function initMap(position) {
       }
   });
 }
-getLocation()
-
+$("#radiusButton").click(getLocation)
 
 //     check local storage for unique id key on
 //         if no key is present, continue as normal
