@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
   <!-- google maps stuff -->
-  <script
+  <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGW4SKZpWxq2mMkuRZiFeUElMLSdDtFQc&libraries=places"></script>
 
   <title>MeHungry</title>
@@ -67,7 +67,8 @@
       <button class="ui button yellow create_btn" type="button" id="test">Search</button>
     </div>
   </div>
-
+  <div style="height:100%; width:100%;" id="map"></div>
+ 
 
   <div class="ui modal test scrolling content internallay celled grid">
     <i class="close icon"></i>
@@ -79,7 +80,7 @@
 
     <!-- resturant 1 -->
     <div class="row">
-      <button class="sixteen wide centered column">
+      <button id='resturantBtn' class="sixteen wide centered column">
         <div class="ui two column grid">
           <div class="four wide column">
             <div class="ui medium image">
@@ -98,7 +99,7 @@
     </div>
     <!-- resturant 2 -->
     <div class="row">
-      <button class="sixteen wide centered column">
+      <button id='resturantBtn' class="sixteen wide centered column">
         <div class="ui two column grid">
           <div class="four wide column">
             <div class="ui medium image">
@@ -117,7 +118,7 @@
     </div>
     <!-- resturant 3 -->
     <div class="row">
-      <button class="sixteen wide centered column">
+      <button id='resturantBtn' class="sixteen wide centered column">
         <div class="ui two column grid">
           <div class="four wide column">
             <div class="ui medium image">
