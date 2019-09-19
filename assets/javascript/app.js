@@ -113,6 +113,7 @@ function showMap() {
       });
     }
   });
+  $(".test").modal('hide')
 }
 
 function getPlaceID(){
