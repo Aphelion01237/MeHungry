@@ -13,7 +13,6 @@
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGW4SKZpWxq2mMkuRZiFeUElMLSdDtFQc&libraries=places"></script>
 
-
   <title>MeHungry</title>
 </head>
 
@@ -35,7 +34,9 @@
               <form>
                 <select id="cuisine" class="ui search dropdown cuisine">
                   <option>Pick Your Flavor</option>
-                  <option val='american resturant'>American</option>
+
+                  <option>Diner</option>
+
                   <option>Burger</option>
                   <option>Pizza</option>
                   <option>Cafe</option>
@@ -46,7 +47,7 @@
                   <option>Indian</option>
                   <option>Thai</option>
                   <option>Japanese</option>
-                  <option>Mediteranian</option>
+                  <option>Mediterranean</option>
                   <option>Vietnamese</option>
                   <option>Chipotle</option>
                 </select>
@@ -73,6 +74,9 @@
     <div class="header">
       Top three resturants near you:
     </div>
+
+    <div id='resturantModal'></div>
+
     <!-- resturant 1 -->
     <div class="row">
       <button class="sixteen wide centered column">
@@ -141,12 +145,10 @@
     </div>
   </div>
 
-
-
-  </div>
-  </div>
-  </div>
   <script src="./assets/javascript/app.js"></script>
+
+
+
 
 </body>
 

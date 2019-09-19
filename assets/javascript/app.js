@@ -52,9 +52,16 @@ function initMap(position) {
           console.log(resturantID);
           console.log(i+1)
           $("#name-"+i).append().text(resturantName)
+
           $("#name-"+i).append().attr('resturantID',resturantID)
-          $("#price-"+i).text(resturantPrice)
+
           $("#rating-"+i).text(resturantRating)
+          $("#price-"+i).text("Price: ")
+          for (j=0; j<resturantPrice; j++)
+            {$("#price-"+i).append("$")}
+            if(!resturantPrice){
+              $("#price-"+i).append("No Info")
+            }
           }
       }
   });
