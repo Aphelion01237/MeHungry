@@ -21,15 +21,18 @@ function showPosition(position) {
 var map;
 var service;
 var infowindow;
-var radi ="1500"
+var radi ="1500";
+var radButton = false;
 
 $("#radiusButton1").click(function(){
   radi = "3750"
   console.log(radi)
+  radButton = true
 })
 $("#radiusButton2").click(function(){
   radi = "1500"
   console.log(radi)
+  radButton = true
 })
 
 function initMap() {
@@ -146,7 +149,7 @@ $(function(){
     var search = $("#cuisine").val()
     console.log(search)
 
-    if (search !=="Pick Your Flavor") {
+    if (search !=="Pick Your Flavor" && radButton === true) {
       $(".test").modal('show');
     }
     // var $("#radiusButton")
