@@ -15,6 +15,16 @@ var map;
 var service;
 var infowindow;
 var walkPlaces;
+var radi ="1500"
+
+$("#radiusButton1").click(function(){
+  radi = "3750"
+  console.log(radi)
+})
+$("#radiusButton2").click(function(){
+  radi = "1500"
+  console.log(radi)
+})
 
 function initMap(position) {
   var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -23,10 +33,15 @@ function initMap(position) {
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
 
+  
+
+
+
   var foodType = document.getElementById("cuisine").value
+
   var request = {
       location: userLocation,
-      radius: '1500',
+      radius: radi,
       opennow: true,
       keyword: foodType,
   };
@@ -63,7 +78,7 @@ function initMap(position) {
       }
   });
 }
-$("#radiusButton").click(getLocation)
+
 
 //     check local storage for unique id key on
 //         if no key is present, continue as normal
@@ -110,18 +125,17 @@ $("#radiusButton").click(getLocation)
 //         one button resets app, deleting local storage and loading main page
 
 
-
-
-
-
-$("#button").on("click", function() {
-
-$('.large.modal').modal('show');
-
-})
 $(function(){
+  $("#test").click(getLocation)
+
 	$("#test").click(function(){
-		$(".test").modal('show');
+    var search = $("#cuisine").val()
+    console.log(search)
+
+    if (search !=="Pick Your Flavor") {
+      $(".test").modal('show');
+    }
+    // var $("#radiusButton")
 	});
 	$(".test").modal({
 		closable: true
