@@ -90,14 +90,25 @@ function initMap(position) {
 
 $("#radiusButton").click(getLocation)
 
-function showMap() {
+
+
+function getLocation2() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showMap);
+    console.log('position aquired');
+  } else { 
+    console.log("Geolocation is not supported by this browser.");
+  }
+}
+function showMap(position) {
   var map1 = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -33.866, lng: 151.196},
+    center: {lat: position.coords.latitude, lng: position.coords.longitude},
     zoom: 15
   });
-
+  
   var request1 = {
-    placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4',
+    // placeId: placeID,
+    placeId: '5d7feac3f75ec6ec9b6a5c7cc19df89327f37f89',
     fields: ['name', 'formatted_address', 'place_id', 'geometry']
   };
 
@@ -118,18 +129,13 @@ function showMap() {
       });
     }
   });
-  alert('map should show')
 }
 
-$('#resturantBtn').click(showMap)
+$('#resturantBtn').click(getLocation2)
 
 // when button in modal is pressed
 //     save place selection information to unique id key in local storage
-//     send user to navigation page
-
-// ON NAVIGATION PAGE LOAD
-//     query google maps api for selected location and generate map
-//         display address and description at top section of page
+//     open map
 // 
 //     query openweather api with lat/long for selected location
 //          do this for the location forecast
