@@ -2,19 +2,25 @@
 //     request user location access NEED HTTPS FOR THIS
 $(".ui.dropdown").dropdown();
 
+$(document).ready( getLocation() )
+
+
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(initMap);
-    console.log('position aquired');
+    navigator.geolocation.getCurrentPosition(showPosition);
   } else { 
     console.log("Geolocation is not supported by this browser.");
   }
+}
+function showPosition(position) {
+  console.log('position aquired');
+  userlat = position.coords.latitude;
+  userlong = position.coords.longitude;
 }
 
 var map;
 var service;
 var infowindow;
-var walkPlaces;
 var radi ="1500"
 
 $("#radiusButton1").click(function(){
@@ -26,21 +32,11 @@ $("#radiusButton2").click(function(){
   console.log(radi)
 })
 
-function initMap(position) {
-  var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  map = new google.maps.Map({ center: userLocation });
-
-  console.log(position.coords.latitude);
-  console.log(position.coords.longitude);
-
-  
-
-
-
+function initMap() {
+  map = new google.maps.Map({ center: {lat: userlat, lng: userlong} });
   var foodType = document.getElementById("cuisine").value
-
   var request = {
-      location: userLocation,
+      location: {lat: userlat, lng: userlong},
       radius: radi,
       opennow: true,
       keyword: foodType,
@@ -88,21 +84,9 @@ function initMap(position) {
 //         if key is present, proceed to navigation page
 
 
-$("#radiusButton").click(getLocation)
-
-
-
-function getLocation2() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showMap);
-    console.log('position aquired');
-  } else { 
-    console.log("Geolocation is not supported by this browser.");
-  }
-}
-function showMap(position) {
+function showMap() {
   var map1 = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: position.coords.latitude, lng: position.coords.longitude},
+    center: {lat: userlat, lng: userlong},
     zoom: 15
   });
   
@@ -131,10 +115,16 @@ function showMap(position) {
   });
 }
 
-$('#resturantBtn').click(getLocation2)
+function getPlaceID(){
+  PlaceID = $(this).attr("resturantid")
+  console.log(PlaceID);
+  
+}
+
+$('#resturantBtn').click(getPlaceID)
+$('#resturantBtn').click(showMap)
 
 // when button in modal is pressed
-//     save place selection information to unique id key in local storage
 //     open map
 // 
 //     query openweather api with lat/long for selected location
@@ -144,14 +134,13 @@ $('#resturantBtn').click(getLocation2)
 // 
 //     dislay map from query under address/description/forecast
 // 
-//     generate 3 buttons, display under map
+//     generate 2 buttons, display under map
 //         one button opens location in google maps
 //         one button copies address to clipboard
-//         one button resets app, deleting local storage and loading main page
 
 
 $(function(){
-  $("#test").click(getLocation)
+  $("#test").click(initMap)
 
 	$("#test").click(function(){
     var search = $("#cuisine").val()
