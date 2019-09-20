@@ -13,6 +13,7 @@
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGW4SKZpWxq2mMkuRZiFeUElMLSdDtFQc&libraries=places"></script>
   <link rel="stylesheet" href="assets/css/style.css">
+  <script async defer src="./assets/javascript/app.js"></script>
   <title>MeHungry</title>
 </head>
 
@@ -57,44 +58,40 @@
       <br>
       <div class="two column centered row">
         <div class="ui fluid large buttons">
-            <button id='radiusButton2' class="ui button" val="1500"><i class="huge child icon" val="walking"></i></button>
-          <button id='radiusButton1' class="ui button" val="3750"><i class="huge car icon" val="driving"></i></button>
+          <button id='radiusButton2' class="ui button" val="1250"><i class="huge child icon" val="walking"></i></button>
+          <button id='radiusButton1' class="ui button" val="3300"><i class="huge car icon" val="driving"></i></button>
         </div>
       </div>
       <br>
-      <button class="ui button yellow create_btn" type="button" id="test">Search</button>
+      <button class="ui button yellow create_btn" type="button" id="searchBtn">Search</button>
       <a class='googleDirections'>
-      <div style="text-align: center" class="placeInfo"></div>
+        <div style="text-align: center" class="placeInfo"></div>
       </a>
-      <div  style="text-align: center"><b class="placeWeather"></b></div>
-      <div class = 'foods' id="map">
-          <div class="ui centered card horizontal fluid instructionPosition">
-              <div class="content">
-                <div class="header">MeHungry Instructions</div>
-              </div>
-              <div class="content">
-                <b class="ui summary">1) Allow browser location access or meHUNGRY won't work
-                  <br>
-                  2) Select desired food type from the dropdown menu
-                  <br>
-                  3) Decide if you want to walk or drive.
-                  <br>
-                  4) Search and pick an option! We'll handle it from there.
-                </b>
-              </div>
-            </div>
+      <div style="text-align: center"><b class="placeWeather"></b></div>
+      <div class='foods' id="map">
+        <div class="ui centered card horizontal fluid instructionPosition">
+          <div class="content">
+            <div class="header">MeHungry Instructions</div>
+          </div>
+          <div class="content">
+            <b class="ui summary">1) Allow browser location access or meHUNGRY won't work
+              <br>
+              2) Select desired food type from the dropdown menu
+              <br>
+              3) Decide if you want to walk or drive.
+              <br>
+              4) Search and pick an option! We'll handle it from there.
+            </b>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-<img src="" alt="">
-
   <div class="ui modal test scrolling content internallay celled grid">
     <i class="close icon"></i>
     <div class="header">
       Top three resturants near you:
     </div>
-    <!-- resturant 1 -->
     <div class="row">
       <button id='attr-0' class="resturantBtn sixteen wide centered column attr-0">
         <div class="ui two column grid">
@@ -113,7 +110,6 @@
         </div>
       </button>
     </div>
-    <!-- resturant 2 -->
     <div class="row">
       <button id='attr-1' class="resturantBtn sixteen wide centered column attr-1">
         <div class="ui two column grid">
@@ -132,7 +128,6 @@
         </div>
       </button>
     </div>
-    <!-- resturant 3 -->
     <div class="row">
       <button id='attr-2' class="resturantBtn sixteen wide centered column attr-2">
         <div class="ui two column grid">
@@ -157,12 +152,6 @@
       </div>
     </div>
   </div>
-
-  <script async defer src="./assets/javascript/app.js"></script>
-
-
-
-
 </body>
 
 </html>

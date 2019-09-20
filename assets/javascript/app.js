@@ -1,9 +1,4 @@
-// ON PAGE LOAD
-//     request user location access NEED HTTPS FOR THIS
-$(".ui.dropdown").dropdown();
-
 $(document).ready(getLocation())
-
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -13,7 +8,6 @@ function getLocation() {
   }
 }
 function showPosition(position) {
-  console.log('position aquired');
   userlat = position.coords.latitude;
   userlong = position.coords.longitude;
 }
@@ -21,15 +15,13 @@ function showPosition(position) {
 var map;
 var service;
 var infowindow;
-var radi = "1500"
+var radi = "1250"
 
 $("#radiusButton1").click(function () {
-  radi = "3750"
-  console.log(radi)
+  radi = "3300"
 })
 $("#radiusButton2").click(function () {
-  radi = "1500"
-  console.log(radi)
+  radi = "1250"
 })
 
 function initMap() {
@@ -48,25 +40,16 @@ function initMap() {
       response.sort(function (a, b) {
         return b.rating - a.rating;
       })
-      console.log(response)
       for (i = 0; i < 3; i++) {
-        // Creating a div to hold the resturant info
-        var resturantDiv = $("<div class='resturant'>");
-        // Storing the resturant info
         var resturantName = response[i].name;
         var resturantRating = response[i].rating;
         var resturantPrice = response[i].price_level;
         var resturantID = response[i].place_id;
-        console.log(resturantName);
-        console.log(resturantRating);
-        console.log(resturantPrice);
-        console.log(resturantID);
-        console.log(i + 1)
         $("#name-" + i).append().text(resturantName)
 
         $(".attr-" + i).append().attr('resturantID', resturantID)
 
-        $("#rating-" + i).text(resturantRating)
+        $("#rating-" + i).text("Rating: " + resturantRating)
         $("#price-" + i).text("Price: ")
         for (j = 0; j < resturantPrice; j++) { $("#price-" + i).append("$") }
         if (!resturantPrice) {
@@ -76,12 +59,6 @@ function initMap() {
     }
   });
 }
-
-
-//     check local storage for unique id key on
-//         if no key is present, continue as normal
-//         if key is present, proceed to navigation page
-
 
 function showMap() {
   $(".modal").modal('hide')
@@ -98,8 +75,6 @@ function showMap() {
     fields: ['name', 'formatted_address', 'place_id', 'geometry', 'url']
   };
   request.placeId = $PlaceIdHolder
-  console.log($PlaceIdHolder);
-  console.log(request)
 
   var infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
@@ -128,8 +103,6 @@ function showMap() {
         method: "GET"
       })
         .then(function (response) {
-          console.log(queryURL);
-          console.log(response);
           $('.placeWeather').append("In 3 hours it'll be about " + response.list[0].main.temp + 
           "°F and "+ response.list[0].weather[0].main.toLowerCase() + ' at '+ place.name);
         });
@@ -146,34 +119,16 @@ function getPlaceID() {
 $('.resturantBtn').click(getPlaceID)
 $('.resturantBtn').click(showMap)
 
-// when button in modal is pressed
-//     open map
-// 
-//     query openweather api with lat/long for selected location
-//          do this for the location forecast
-//          pull expected temperature for next 4 hours
-//          display expected temperature and conditions under address and description
-// 
-//     dislay map from query under address/description/forecast
-// 
-//     generate 2 buttons, display under map
-//         one button opens location in google maps
-//         one button copies address to clipboard
-
 
 $(function () {
-  $("#test").click(initMap)
-
-  $("#test").click(function () {
+  $("#searchBtn").click(initMap)
+  $("#searchBtn").click(function () {
     var search = $("#cuisine").val()
-    console.log(search)
-
     if (search !== "Pick Your Flavor") {
-      $(".test").modal('show');
+      $(".modal").modal('show');
     }
-    // var $("#radiusButton")
   });
-  $(".test").modal({
+  $(".modal").modal({
     closable: true
   })
 });
