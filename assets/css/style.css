@@ -1,4 +1,7 @@
-#map {
+/* #map {
     height: 50%;
     width: 50%
+} */
+.cardheight{
+    height:100vh;
 }
