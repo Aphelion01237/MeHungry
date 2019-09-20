@@ -21,15 +21,20 @@ function showPosition(position) {
 var map;
 var service;
 var infowindow;
-var radi = "1500"
+
+var radi ="1500";
+var radButton = false;
+
 
 $("#radiusButton1").click(function () {
   radi = "3750"
   console.log(radi)
+  radButton = true
 })
 $("#radiusButton2").click(function () {
   radi = "1500"
   console.log(radi)
+  radButton = true
 })
 
 function initMap() {
@@ -44,6 +49,7 @@ function initMap() {
 
   service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, function (response, status) {
+
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       response.sort(function (a, b) {
         return b.rating - a.rating;
@@ -64,7 +70,7 @@ function initMap() {
         console.log(i + 1)
         $("#name-" + i).append().text(resturantName)
 
-        $(".attr-" + i).append().attr('resturantID', resturantID)
+        $("#attr-" + i).append().attr('resturantID', resturantID)
 
         $("#rating-" + i).text(resturantRating)
         $("#price-" + i).text("Price: ")
@@ -72,6 +78,7 @@ function initMap() {
         if (!resturantPrice) {
           $("#price-" + i).append("No Info")
         }
+
       }
     }
   });
@@ -167,7 +174,9 @@ $(function () {
     var search = $("#cuisine").val()
     console.log(search)
 
-    if (search !== "Pick Your Flavor") {
+
+    if (search !=="Pick Your Flavor" && radButton === true) {
+
       $(".test").modal('show');
     }
     // var $("#radiusButton")
