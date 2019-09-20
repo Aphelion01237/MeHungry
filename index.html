@@ -12,12 +12,12 @@
   <!-- google maps stuff -->
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGW4SKZpWxq2mMkuRZiFeUElMLSdDtFQc&libraries=places"></script>
-
+  <link rel="stylesheet" href="assets/css/style.css">
   <title>MeHungry</title>
 </head>
 
 <body>
-  <div class="cardheight ui centered four doubling stackable cards">
+  <div class="cardheight ui centered three doubling stackable cards">
     <div class="ui centered card">
       <div class="ui one column centered container">
         <div class="column centered">
@@ -28,15 +28,13 @@
               </a>
             </div>
           </div>
-          <br></br>
-          <div class="one column centered row">
+          <br>
+          <div class="one column fluid centered row">
             <div class="column">
               <form>
                 <select id="cuisine" class="ui search dropdown cuisine">
                   <option>Pick Your Flavor</option>
-
                   <option>Diner</option>
-
                   <option>Burger</option>
                   <option>Pizza</option>
                   <option>Cafe</option>
@@ -56,20 +54,36 @@
           </div>
         </div>
       </div>
-      <br><br>
+      <br>
       <div class="two column centered row">
-        <div class="ui large buttons">
+        <div class="ui fluid large buttons">
+            <button id='radiusButton2' class="ui button" val="1500"><i class="huge child icon" val="walking"></i></button>
           <button id='radiusButton1' class="ui button" val="3750"><i class="huge car icon" val="driving"></i></button>
-          <button id='radiusButton2' class="ui button" val="1500"><i class="huge blind icon" val="walking"></i></button>
         </div>
       </div>
-      <br></br>
+      <br>
       <button class="ui button yellow create_btn" type="button" id="test">Search</button>
       <a class='googleDirections'>
-          <div style="text-align: center" class="placeInfo"></div>
+      <div style="text-align: center" class="placeInfo"></div>
       </a>
       <div  style="text-align: center"><b class="placeWeather"></b></div>
-      <div style="height:50vh; max-width:100vw;" id="map"></div>
+      <div class = 'foods' id="map">
+          <div class="ui centered card horizontal fluid instructionPosition">
+              <div class="content">
+                <div class="header">MeHungry Instructions</div>
+              </div>
+              <div class="content">
+                <b class="ui summary">1) Allow browser location access or meHUNGRY won't work
+                  <br>
+                  2) Select desired food type from the dropdown menu
+                  <br>
+                  3) Decide if you want to walk or drive.
+                  <br>
+                  4) Search and pick an option! We'll handle it from there.
+                </b>
+              </div>
+            </div>
+      </div>
     </div>
   </div>
 
