@@ -67,7 +67,7 @@ function initMap() {
           console.log(i+1)
           $("#name-"+i).append().text(resturantName)
 
-          $("#name-"+i).append().attr('resturantID',resturantID)
+          $("#attr-"+i).attr('resturantID',resturantID)
 
           $("#rating-"+i).text(resturantRating)
           $("#price-"+i).text("Price: ")
@@ -125,8 +125,8 @@ function getPlaceID(){
   
 }
 
-$('#resturantBtn').click(getPlaceID)
-$('#resturantBtn').click(showMap)
+$('.resturantBtn').click(getPlaceID)
+$('.resturantBtn').click(showMap)
 
 // when button in modal is pressed
 //     open map
