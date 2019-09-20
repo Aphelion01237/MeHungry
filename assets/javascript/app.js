@@ -15,7 +15,6 @@ function showPosition(position) {
 var map;
 var service;
 var infowindow;
-
 var radi = "1250"
 
 $("#radiusButton1").click(function () {
@@ -23,7 +22,7 @@ $("#radiusButton1").click(function () {
 })
 $("#radiusButton2").click(function () {
   radi = "1250"
-
+})
 
 function initMap() {
   map = new google.maps.Map({ center: { lat: userlat, lng: userlong } });
@@ -37,7 +36,6 @@ function initMap() {
 
   service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, function (response, status) {
-
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       response.sort(function (a, b) {
         return b.rating - a.rating;
@@ -49,15 +47,14 @@ function initMap() {
         var resturantID = response[i].place_id;
         $("#name-" + i).append().text(resturantName)
 
-        $("#attr-" + i).append().attr('resturantID', resturantID)
+        $(".attr-" + i).append().attr('resturantID', resturantID)
 
-        $("#rating-" + i).text("Rating: " + resturantRating)
+        $("#rating-" + i).text("Rating: "+ resturantRating)
         $("#price-" + i).text("Price: ")
         for (j = 0; j < resturantPrice; j++) { $("#price-" + i).append("$") }
         if (!resturantPrice) {
           $("#price-" + i).append("No Info")
         }
-
       }
     }
   });
@@ -127,10 +124,8 @@ $(function () {
   $("#searchBtn").click(initMap)
   $("#searchBtn").click(function () {
     var search = $("#cuisine").val()
-
     if (search !== "Pick Your Flavor") {
       $(".modal").modal('show');
-
     }
   });
   $(".modal").modal({
