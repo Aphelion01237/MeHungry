@@ -87,6 +87,7 @@ function showMap() {
   $(".modal").modal('hide')
   $('.placeInfo').html("")
   $('.placeWeather').html("")
+  $('#map').html("")
   var map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: userlat, lng: userlong },
     zoom: 15
