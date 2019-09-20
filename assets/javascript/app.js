@@ -56,7 +56,7 @@ function initMap() {
           var resturantName = response[i].name;
           var resturantRating = response[i].rating;
           var resturantPrice = response[i].price_level;
-          var resturantID = response[i].id;
+          var resturantID = response[i].place_id;
           console.log(resturantName);
           console.log(resturantRating);
           console.log(resturantPrice);
@@ -64,7 +64,7 @@ function initMap() {
           console.log(i+1)
           $("#name-"+i).append().text(resturantName)
 
-          $("#name-"+i).append().attr('resturantID',resturantID)
+          $(".attr-"+i).append().attr('resturantID',resturantID)
 
           $("#rating-"+i).text(resturantRating)
           $("#price-"+i).text("Price: ")
@@ -85,44 +85,50 @@ function initMap() {
 
 
 function showMap() {
-  var map1 = new google.maps.Map(document.getElementById('map'), {
+  $(".test").modal('hide')
+  var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: userlat, lng: userlong},
     zoom: 15
   });
-  
-  var request1 = {
-    // placeId: placeID,
-    placeId: '5d7feac3f75ec6ec9b6a5c7cc19df89327f37f89',
-    fields: ['name', 'formatted_address', 'place_id', 'geometry']
+
+  var request = {
+    placeId: "",
+    fields: ['name', 'formatted_address', 'place_id', 'geometry', 'url']
   };
+  request.placeId = $PlaceIdHolder
+  console.log($PlaceIdHolder);
+  console.log(request)
 
   var infowindow = new google.maps.InfoWindow();
-  var serviceMap = new google.maps.places.PlacesService(map1);
+  var service = new google.maps.places.PlacesService(map);
 
-  serviceMap.getDetails(request1, function(place, status) {
+  service.getDetails(request, function(place, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       var marker = new google.maps.Marker({
-        map: map1,
+        map: map,
         position: place.geometry.location
       });
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-          'Place ID: ' + place.place_id + '<br>' +
           place.formatted_address + '</div>');
-        infowindow.open(map1, this);
+        infowindow.open(map, this);
       });
+      map.setCenter(marker.getPosition())
+      $('.placeInfo').append('<b>Launch navigation to: ' + place.name + '</b><br><b>' + 
+      place.formatted_address + '</b>');
+
+      $('.googleDirections').attr('href', place.url)
+    } else{
+      console.log(status)
     }
   });
-  $(".test").modal('hide')
 }
 
 function getPlaceID(){
-  PlaceID = $(this).attr("resturantid")
-  console.log(PlaceID);
-  
+  $PlaceIdHolder = $(this).attr("resturantid")
 }
 
-$('#resturantBtn').click(getPlaceID)
+$('.resturantBtn').click(getPlaceID)
 $('#resturantBtn').click(showMap)
 
 // when button in modal is pressed
