@@ -1,5 +1,6 @@
 body{
     background-color: #444;
+    -webkit-appearance: none;
 }
 .bgc{
     background-color: #444;
