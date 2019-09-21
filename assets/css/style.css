@@ -1,6 +1,5 @@
 body{
     background-color: #444;
-    -webkit-appearance: none;
 }
 .bgc{
     background-color: #444;
@@ -17,4 +16,9 @@ body{
 }
 .instructionPosition{
     padding-top: 10vh;
+}
+.resturantBtn{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
